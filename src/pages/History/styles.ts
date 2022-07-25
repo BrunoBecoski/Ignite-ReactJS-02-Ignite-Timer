@@ -49,6 +49,10 @@ export const HistoryList = styled.div`
       font-size: 0.875rem;
       line-height: 1.6;
 
+      &::first-letter {
+        text-transform: uppercase;
+      }
+
       &:first-child {
         width: 50%;
         padding-left: 1.5rem;
