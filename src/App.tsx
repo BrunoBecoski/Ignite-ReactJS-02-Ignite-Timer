@@ -9,23 +9,37 @@ import { GlobalStyle } from './styles/global'
 import { defaultTheme } from './styles/themes/default'
 import { lightTheme } from './styles/themes/light'
 
+type Themes = 'default' | 'light'
+
 interface ThemeContextType {
-  isDefaultTheme: boolean
+  theme: Themes
   toogleTheme: () => void
 }
 
 export const ThemeContext = createContext({} as ThemeContextType)
 
 export function App() {
-  const [isDefaultTheme, setIsDefaultTheme] = useState(true)
+  const [theme, setTheme] = useState<Themes>(() => {
+    const storageValue = localStorage.getItem('@ignite-timer:theme-1.0.0')
+
+    if (storageValue) {
+      return JSON.parse(storageValue)
+    }
+
+    return 'default'
+  })
 
   function toogleTheme() {
-    setIsDefaultTheme((state) => !state)
+    const themeNow = theme === 'default' ? 'light' : 'default'
+
+    setTheme(themeNow)
+
+    localStorage.setItem('@ignite-timer:theme-1.0.0', JSON.stringify(themeNow))
   }
 
   return (
-    <ThemeProvider theme={isDefaultTheme ? defaultTheme : lightTheme}>
-      <ThemeContext.Provider value={{ isDefaultTheme, toogleTheme }}>
+    <ThemeProvider theme={theme === 'default' ? defaultTheme : lightTheme}>
+      <ThemeContext.Provider value={{ theme, toogleTheme }}>
         <BrowserRouter>
           <CyclesContextProvider>
             <Router />

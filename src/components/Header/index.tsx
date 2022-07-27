@@ -9,7 +9,7 @@ import { HeaderContainer } from './styles'
 import logoIgnite from '../../assets/logo-ignite.svg'
 
 export function Header() {
-  const { toogleTheme, isDefaultTheme } = useContext(ThemeContext)
+  const { toogleTheme, theme } = useContext(ThemeContext)
 
   function handleToogleTheme() {
     toogleTheme()
@@ -20,8 +20,8 @@ export function Header() {
       <div>
         <img src={logoIgnite} alt="" />
 
-        <button onClick={handleToogleTheme}>
-          {isDefaultTheme ? <Sun size={24} /> : <Moon size={24} />}
+        <button onClick={toogleTheme}>
+          {theme === 'default' ? <Sun size={24} /> : <Moon size={24} />}
         </button>
       </div>
 
