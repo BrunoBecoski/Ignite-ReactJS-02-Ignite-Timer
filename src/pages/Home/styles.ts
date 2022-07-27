@@ -25,7 +25,7 @@ export const BaseCountdownButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${(props) => props.theme['gray-100']};
+  color: ${(props) => props.theme.white};
 
   gap: 0.5rem;
   font-weight: bold;
