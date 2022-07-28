@@ -1,9 +1,9 @@
 <h1 align="center">
-  <img src=".github/logo.png" alt="Ignite Feed" title="Ignite Lab ReactJS" />
+  <img src=".github/logo.png" alt="Ignite Timer" title="Ignite Timer" />
 </h1>
 
 <span align="center">
-  <img src=".github/capa.png" alt="Capa Ignite Feed" title="Capa Ignite Lab ReactJS" />
+  <img src=".github/capa.png" alt="Capa Timer" title="Capa Ignite Timer" />
 </span>
 
 ## ✨ Tecnologias
